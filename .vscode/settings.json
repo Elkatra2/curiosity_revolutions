@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "robot.h": "c",
+        "raylib.h": "c",
+        "terrain_2d.h": "c",
+        "terrain.h": "c",
+        "graphique.h": "c"
+    }
+}

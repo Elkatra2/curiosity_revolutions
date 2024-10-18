@@ -45,6 +45,9 @@ int est_case_libre(Terrain *t, int x, int y);
 /* Affichage d'un terrain t sur la sortie standard */
 void afficher_terrain(Terrain *t);
 
+/* Affichage d'un terrain t sur la fenetre graphique */
+void afficher_terrain_graphique(Terrain *t);
+
 /* Écriture d'un terrain t dans un fichier f ouvert en écriture.
    x et y contiennent les coordonnées du robot
    Le terrain est écrit au format lisible par lire_terrain */

@@ -1,0 +1,3 @@
+Il y a deux mode d'affichage :
+    1. make MODE=GRAPHIQUE      affichage graphique avec une fenetre (GNU Linux)
+    2. make                     affichage sur la sortie standart

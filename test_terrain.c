@@ -1,7 +1,8 @@
+#include "graphique.h"
 #include "terrain.h"
 #include <stdio.h>
 
-int main(int argc, char **argv) {
+int main(int argc, char *argv[]) {
   FILE *f;
   Terrain t;
   int x, y;
@@ -12,8 +13,10 @@ int main(int argc, char **argv) {
   }
 
   f = fopen(argv[1], "r");
-  lire_terrain(f, &t, &x, &y);
+  erreur_terrain err = lire_terrain(f, &t, &x, &y);
   fclose(f);
-  afficher_terrain(&t);
-  printf("Position initiale du robot : (%d, %d)\n", x, y);
+  
+  affiche_test_terrain(&t, x, y);
+
+  return err;
 }
