@@ -47,7 +47,25 @@ int main(int argc, char **argv) {
   scanf(" %c", &c);
   while (c != 'f') {
 
-    /* À compléter */
+    switch(c) {
+      case 'a': 
+      case 'A':
+        avancer(&r); 
+        break;
+      
+      case 'g': 
+      case 'G':
+        tourner_a_gauche(&r); 
+        break;
+
+      case 'd': 
+      case 'D':
+        tourner_a_droite(&r); 
+        break;
+    }
+
+    putchar('\n');
+    afficher_infos_robot(&r);
 
     printf("Entrer une action ([a]vancer, [g]auche, [d]roite, [f]in : ");
     scanf(" %c", &c);

@@ -1,3 +1,10 @@
 Il y a deux mode d'affichage :
     1. make MODE=GRAPHIQUE      affichage graphique avec une fenetre (GNU Linux)
     2. make                     affichage sur la sortie standart
+
+Les programme avec le mode graphique:
+- test_terrain
+
+Les programme avec l'affichage dans la sortie standart
+- test_terrain
+-

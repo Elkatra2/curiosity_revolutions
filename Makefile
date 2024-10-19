@@ -4,16 +4,18 @@
 CFLAGS = -Wall -g
 CC_DEFAULT = clang $(CFLAGS)
 
-# Les modes disponibles d'affichage
-# - GRAPHIQUE   		affichage graphique
-# - par défaut 			affichage dans la sortie standart
-MODE ?= MODE
+# # Les modes disponibles d'affichage
+# # - GRAPHIQUE   		affichage graphique
+# # - par défaut 			affichage dans la sortie standart
+# MODE ?= MODE
 
-ifeq ($(MODE), GRAPHIQUE) # Affichage graphique
-    CC = $(CC_DEFAULT) -lraylib -DAFFICHE_GRAPH
-else
-    CC = $(CC_DEFAULT)
-endif
+# ifeq ($(MODE), GRAPHIQUE) # Affichage graphique
+#     CC = $(CC_DEFAULT) -lraylib -DAFFICHE_GRAPH
+# else
+#     CC = $(CC_DEFAULT)
+# endif
+
+CC = $(CC_DEFAULT)
 
 EXEC = test_terrain test_robot robot_terrain
 
@@ -30,7 +32,7 @@ all: $(EXEC)
 test_terrain.o: test_terrain.c terrain.h graphique.h
 
 # La programme principale de test_robot
-test_robot.o: test_robot.c robot.h graphique.h
+test_robot.o: test_robot.c robot.h terrain.h graphique.h
 
 # La programme principale de robot_terrain
 robot_terrain.o: robot_terrain.c terrain.h robot.h graphique.h

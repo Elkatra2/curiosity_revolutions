@@ -1,5 +1,6 @@
 #ifndef _TERRAIN_H_
 #define _TERRAIN_H_
+
 #include <stdio.h>
 
 typedef enum { LIBRE, EAU, ROCHER } Case;
@@ -15,16 +16,39 @@ typedef struct {
   Case tab[DIM_MAX][DIM_MAX];
 } Terrain;
 
-typedef enum { OK, ERREUR_FICHIER } erreur_terrain;
+typedef enum { 
+   TERRAIN_OK, ERREUR_FICHIER, ERREUR_LARGEUR_EOF, ERREUR_LARGEUR_NEGATIF, 
+   ERREUR_LARGEUR_TROP_GRAND, ERREUR_HAUTEUR_EOF, ERREUR_HAUTEUR_NEGATIF, 
+   ERREUR_HAUTEUR_TROP_GRAND, ERREUR_TERRAIN_EOF, ERREUR_TERRAIN_LARGEUR, 
+   ERREUR_TERRAIN_HAUTEUR, ERREUR_TERRAIN_CURIOSITY_DEUX, ERREUR_CURIOSITY_DISPARAIT,
+   ERREUR_FICHIER_GRAND
+} erreur_terrain;
 
 /* Lecture d'un terrain dans un fichier f, ouvert en lecture
    Résultats :
    t le terrain lu
    x, y position initiale du robot lue dans le fichier terrain
    Renvoie :
-   OK si la lecture s'est déroulée correctement
-   ERREUR_FICHIER si le fichier n'a pas pu être ouvert
-   ... (à compléter)
+      TERRAIN_OK:
+         - si la lecture s'est déroulée correctement,
+      ERREUR_FICHIER:
+         - si le fichier n'a pas pu être ouvert,
+      ERREUR_LARGEUR_EOF:
+         - si au lieu de largeur on a le fin de fichier
+      ERREUR_LARGEUR_NEGATIF:
+         - si la largeur est plus petit que 0
+      ERREUR_LARGEUR_TROP_GRAND:
+         - si la largeur est plus grand que DIM_MAX
+      ERREUR_HAUTEUR_EOF:
+         - si au lieu de l'hauteur on a le fin de fichier
+      ERREUR_HAUTEUR_NEGATIF:
+         - si l'hauteur est plus petit que 0
+      ERREUR_HAUTEUR_TROP_GRAND:
+         - si l'hauteur est plus grand que DIM_MAX
+      ERREUR_TERRAIN:
+         - si le terrain n'est pas bon.
+      ..... : // TODO autres erreurs
+         - si ....
  */
 erreur_terrain lire_terrain(FILE *f, Terrain *t, int *x, int *y);
 

@@ -1,5 +1,8 @@
 #include "robot.h"
 #include "terrain.h"
+#include "erreur.h"
+#include "graphique.h"
+
 #include <stdio.h>
 
 #define TAILLE_TERRAIN 10
@@ -81,9 +84,9 @@ void afficher_terrain_et_robot(Terrain *t, Robot *r) {
 /* Renvoie vrai si le robot r, de sa position et orientation courante,
    peut avancer dans le terrain t */
 int robot_peut_avancer(Terrain *t, Robot *r) {
-  /* À compléter */
-
-  return 0; /* À modifier */
+  int x, y;                                       // les coordonnées devant du robot
+  position_devant(r, &x, &y);                     // copie la position devant de robot
+  return est_case_libre(t, x, y);                 // vrai si la case devant est libre
 }
 
 int main(int argc, char **argv) {
@@ -103,10 +106,8 @@ int main(int argc, char **argv) {
   // Lecture du terrain
   f = fopen(argv[1], "r");
   e = lire_terrain(f, &t, &x, &y);
-  fclose(f);
 
-  if (e != OK) {
-    printf("Erreur lors de la lecture du terrain\n");
+  if (e != TERRAIN_OK) {
     return 2;
   }
 

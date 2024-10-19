@@ -4,6 +4,8 @@
 #include "raylib.h"
 #include "terrain.h"
 
+#ifdef OFF
+
 /* Affichage graphique avec le flag SHOW_GRAPH */
 
 /* Mode graphique */
@@ -17,6 +19,9 @@
  * - t, le terrain
  * - x, y les coordonnée de Curiosity
 */
+
 void affiche_test_terrain(Terrain *t, int x, int y);
+
+#endif
 
 #endif // affichage.h

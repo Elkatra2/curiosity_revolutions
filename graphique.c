@@ -1,6 +1,8 @@
 #include "graphique.h"
 #include "terrain.h"
 
+#ifdef OFF
+
 void affiche_test_terrain(Terrain *t, int x, int y) {
 #ifdef AFFICHE_GRAPH
 
@@ -27,3 +29,5 @@ void affiche_test_terrain(Terrain *t, int x, int y) {
 
 #endif
 }
+
+#endif
